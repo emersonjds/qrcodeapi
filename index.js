@@ -14,16 +14,20 @@ app.get('/', (req, res) => {
 
     console.log('REQUEST EXECUTADO')
     const userAgent = req.headers['user-agent'];
+
+    let device = 'unknown';
+
     if (/android/i.test(userAgent)) {
         console.log('REQUEST ANDROID')
-        res.json({ device: 'android' });
+        device = 'android';
     } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
         console.log('REQUEST IOS')
-        res.json({ device: 'ios' });
+        device = 'ios';
     } else {
-        console.log('DESCONHECIDO')
-        res.json({ device: 'unknown' });
+        res.send('Sistema operacional não suportado.');
     }
+
+    res.json({ device });
     // console.log('HOUVE UMA REQUEST');
     //
     // const userAgent = req.headers['user-agent'].toLowerCase();
