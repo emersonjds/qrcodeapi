@@ -1,0 +1,14 @@
+{
+  "name": "apiqrcode",
+  "version": "1.0.0",
+  "description": "Api for test QRCode Portonet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "Emerson Silva",
+  "license": "GPL-3.0"
+}
