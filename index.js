@@ -11,7 +11,10 @@ app.get('/test', (req, res) => {
 app.get('/', (req, res) => {
 
     const userAgent = req.headers['user-agent'].toLowerCase();
-    return console.log(userAgent);
+
+    const appPackage = 'br.com.portoseguro.portonetmobile';
+    const scheme = 'portonet://abrirappportonet';
+    const playStoreUrl = `https://play.google.com/store/apps/details?id=br.com.portoseguro.portonetmobile&hl=pt_BR`;
 
     res.setHeader('Access-Control-Allow-Credentials', 'true');
     if (req.headers.origin && ['http://localhost:3000', 'http://localhost:3001'].includes(req.headers.origin)) {
@@ -20,7 +23,8 @@ app.get('/', (req, res) => {
 
     if (userAgent.includes('android')) {
         // Redirect to Google Play or open the app if installed
-        res.redirect('intent://yourapp#Intent;scheme=yourappscheme;package=com.yourapp.package;end');
+        // res.redirect('intent://portonet#Intent;scheme=portonet://abrirappportonet;package=com.yourapp.package;end');
+        res.redirect(`intent://${scheme}#Intent;scheme=portonet;package=${appPackage};S.browser_fallback_url=${encodeURIComponent(playStoreUrl)};end`);
     } else {
         res.send('Sistema operacional não suportado.');
     }
