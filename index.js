@@ -4,11 +4,19 @@ const cors = require('cors');
 
 app.use(cors());
 
+const corsOptions = {
+    origin: 'https://portonetqrcode.netlify.app/',//(https://your-client-app.com)
+    optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
+
 app.get('/test', (req, res) => {
     res.json('Hello World')
 });
 
-app.get('/', (req, res) => {
+app.get('/', cors(corsOptions), (req, res) => {
 
     const userAgent = req.headers['user-agent'].toLowerCase();
 
