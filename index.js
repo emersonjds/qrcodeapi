@@ -20,7 +20,8 @@ app.get('/', (req, res) => {
         console.log('REQUEST IOS')
         device = 'ios';
     } else {
-        res.send('Sistema operacional não suportado.');
+        console.log('REQUEST DESKTOP')
+        device = 'desktop';
     }
 
     res.json({ device });
