@@ -47,6 +47,16 @@ app.get('/', (req, res) => {
     // }
 });
 
+app.get('/paymentMethod', (req, res) => {
+    const data = [
+        {
+            values: [20, 35, 15, 30,57],
+            labels: ['Dinheiro', 'Cartão de Crédito', 'Cartão de Débito', 'Pix', 'Dinheiro']
+        }
+    ];
+    res.json(data);
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
