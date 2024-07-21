@@ -25,7 +25,6 @@ app.get('/', (req, res) => {
     }
 
     res.json({ device });
-    // console.log('HOUVE UMA REQUEST');
     //
     // const userAgent = req.headers['user-agent'].toLowerCase();
     //
