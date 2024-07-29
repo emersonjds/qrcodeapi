@@ -9,7 +9,6 @@ app.get('/test', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-
     const userAgent = req.headers['user-agent'];
     let device = 'unknown';
 
