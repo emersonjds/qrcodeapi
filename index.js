@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
   // }
 });
 
-app.get("/paymentMethod", (req, res) => {
+app.get("/paymentMethod", (_req, res) => {
   const data = [
     {
       values: [20, 35, 15, 30, 57],
