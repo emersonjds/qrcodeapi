@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
   // }
 });
 
-app.get("/paymentMethod", (_req, res) => {
+app.get("/paymentMethod", (_req, _res) => {
   const data = [
     {
       values: [20, 35, 15, 30, 57],
@@ -58,7 +58,7 @@ app.get("/paymentMethod", (_req, res) => {
       ],
     },
   ];
-  res.json(data[0].labels);
+  _res.json(data[0].labels);
 });
 
 const port = process.env.PORT || 3000;
