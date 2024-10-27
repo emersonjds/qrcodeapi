@@ -24,7 +24,6 @@ app.get("/", (req, res) => {
   }
 
   res.json({ device });
-  //
   // const userAgent = req.headers['user-agent'].toLowerCase();
   //
   // const appPackage = 'br.com.portoseguro.portonetmobile';
