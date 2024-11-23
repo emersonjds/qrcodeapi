@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 
 app.use(cors());
+app.use(express.json());
 
 app.get("/test", (req, res) => {
   res.json("Hello World");
@@ -58,6 +59,15 @@ app.get("/paymentMethod", (_req, _res) => {
     },
   ];
   _res.json(data[0].labels);
+});
+
+app.post("/api/userData", (_req, _res) => {
+  const { name, age } = _req.body;
+
+  _res.json({
+    message: "Usuario cadastrado com sucesso",
+    data: `${name}, ${age}`,
+  });
 });
 
 const port = process.env.PORT || 3000;
